@@ -4,16 +4,16 @@
 class Agwiki < Formula
   desc "Agent-based wiki CLI: init, ingest, validate, skill export"
   homepage "https://github.com/goagwiki/agwiki"
-  version "0.1.7"
+  version "0.1.8"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/goagwiki/agwiki/releases/download/v0.1.7/agwiki-aarch64-apple-darwin.tar.gz"
-      sha256 "9641874cbefad6f9a135547232445e4f22839af27b11ae366c6c76e63cc35138"
+      url "https://github.com/goagwiki/agwiki/releases/download/v0.1.8/agwiki-aarch64-apple-darwin.tar.gz"
+      sha256 "307e69531aff475a34c06f06557ed7ab2459924e3e4cbe57daf8a12d50d29c08"
     elsif Hardware::CPU.intel?
-      url "https://github.com/goagwiki/agwiki/releases/download/v0.1.7/agwiki-x86_64-apple-darwin.tar.gz"
-      sha256 "24afc432006c6c3ab8d8007ab16bf2faa9b9dcba8cce772f360de3e5bfb1bb4c"
+      url "https://github.com/goagwiki/agwiki/releases/download/v0.1.8/agwiki-x86_64-apple-darwin.tar.gz"
+      sha256 "1c94431ec1fed77bf402515c881d38c6ac26382e76dda3a03c9d81f21622878b"
     else
       odie "Unsupported macOS CPU architecture"
     end
@@ -31,11 +31,11 @@ class Agwiki < Formula
       end
 
       if glibc_version >= 2.38
-        url "https://github.com/goagwiki/agwiki/releases/download/v0.1.7/agwiki-x86_64-unknown-linux-gnu.tar.gz"
-        sha256 "117cde3d89c7774d51eaa971dd660615f74881c18459a16bdee2da5a31b1fd58"
+        url "https://github.com/goagwiki/agwiki/releases/download/v0.1.8/agwiki-x86_64-unknown-linux-gnu.tar.gz"
+        sha256 "eb36b82e00f8178760a09d15d95de8dd74f41d96e789b0682ddcd66d6e173522"
       else
-        url "https://github.com/goagwiki/agwiki/releases/download/v0.1.7/agwiki-x86_64-unknown-linux-musl.tar.gz"
-        sha256 "c4aa0bc3722fbe9e9ca326e3c6c7eae474440982884362d73f70fcc7a32c1a68"
+        url "https://github.com/goagwiki/agwiki/releases/download/v0.1.8/agwiki-x86_64-unknown-linux-musl.tar.gz"
+        sha256 "6e21a848a5eccfddd4d88e420bf94e307ea7b2984fe078c226977fa232a4cda2"
       end
     else
       odie "Unsupported Linux CPU architecture"
