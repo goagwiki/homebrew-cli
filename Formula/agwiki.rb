@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 class Agwiki < Formula
-  desc "Agent-based wiki CLI: prep, ingest, link checks, skill export"
+  desc "Agent-based wiki CLI: init, ingest, validate, skill export"
   homepage "https://github.com/goagwiki/agwiki"
   version "0.0.0"
   license "Apache-2.0"

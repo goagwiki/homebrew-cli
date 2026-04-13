@@ -137,10 +137,10 @@ cat > "$FORMULA_FILE" <<FORMULA_EOF
 # frozen_string_literal: true
 
 class ${FORMULA_CLASS} < Formula
-  desc "Multi-agent template package manager and CLI for AI coding assistants"
+  desc "Agent-based wiki CLI: init, ingest, validate, skill export"
   homepage "https://github.com/goagwiki/agwiki"
   version "${VERSION}"
-  license "MIT"
+  license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.arm?

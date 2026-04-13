@@ -2,7 +2,7 @@
 
 Install [**agwiki**](https://github.com/goagwiki/agwiki), the **agent-based wiki** CLI, via Homebrew.
 
-**agwiki** helps you manage markdown wikis: resolve ingest paths, run agent-driven ingest (`aikit` / `opencode`), validate wikilinks, list orphan pages, and export a wiki slice as an [Agent Skill](https://agentskills.io/).
+**agwiki** helps you manage markdown wikis: **`init`** scaffolding, agent-driven ingest via **`aikit`**, **`validate`** (wikilinks + orphan pages), and export a wiki slice as an [Agent Skill](https://agentskills.io/).
 
 ## Platform support
 
@@ -17,34 +17,27 @@ brew install goagwiki/cli/agwiki
 
 Homebrew installs the binary for your host architecture.
 
-## Environment
+## Usage notes
 
-| Variable | Purpose |
-|----------|---------|
-| `AGWIKI_ROOT` | Path to agwiki toolkit (`prompts/ingest.md`, `AGENTS.md`). Also `FASTWIKI_ROOT` / `WIKIFY_ROOT`. |
-| `WIKI_ROOT` | Default content wiki root (overridden by `-C` / `--wiki-root`). |
-
-For ingest you need **`aikit`** and **`opencode`** on `PATH` unless you use `--runner opencode` only.
+- **`ingest`**, **`validate`**, and **`export-skill`** accept **`-C` / `--wiki-root`** (content repo with `wiki/`); if omitted, the current working directory is used.
+- **`ingest`** reads **`<wiki-root>/ingest.md`**; the file must exist or the command fails. Copy the default from [agwiki `prompts/ingest.md`](https://github.com/goagwiki/agwiki/blob/main/prompts/ingest.md) to **`ingest.md`** in your wiki if needed. The template may use **`{{INGEST_PATH}}`** and **`{{WIKI_ROOT}}`** (filled by `agwiki`).
+- **`ingest`** requires **`aikit`** on `PATH`. It runs **`aikit run --events`** so **NDJSON event lines** print on stdout for progress. **`-a` / `--agent` is required** (no default); optional **`-m`** and **`--stream`** like `aikit run`.
 
 ## Usage examples
 
 ```bash
 agwiki --version
 
-# Print absolute path to a source note (optional: require path under raw/)
-agwiki prep -C ~/my-wiki ~/my-wiki/raw/article.md
-agwiki prep -C ~/my-wiki --raw-only ~/my-wiki/raw/article.md
+# New wiki root (agwiki.toml, dirs, ingest.md)
+agwiki init ~/my-wiki
 
-# Agent ingest (set AGWIKI_ROOT to your agwiki checkout)
-export AGWIKI_ROOT=/path/to/agwiki
-agwiki ingest -C ~/my-wiki ~/my-wiki/raw/article.md
-agwiki ingest -C ~/my-wiki --runner opencode ~/my-wiki/raw/article.md
+# Agent ingest (requires ~/my-wiki/ingest.md and -a); stdout is aikit --events NDJSON
+agwiki ingest -C ~/my-wiki -a opencode ~/my-wiki/raw/article.md
+cd ~/my-wiki && agwiki ingest -a opencode ./raw/article.md
 
-# Lint wiki links (exit 1 if any broken)
-agwiki check-links -C ~/my-wiki
-
-# Pages with no incoming wikilink
-agwiki orphans -C ~/my-wiki
+# Broken links + orphan pages (exit 1 if any); optional --format json
+agwiki validate -C ~/my-wiki
+agwiki validate --format json
 
 # Build skill/ from wiki (template + index-driven section list)
 agwiki export-skill -C ~/my-wiki --prune
