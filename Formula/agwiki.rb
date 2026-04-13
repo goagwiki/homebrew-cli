@@ -4,16 +4,16 @@
 class Agwiki < Formula
   desc "Agent-based wiki CLI: init, ingest, validate, skill export"
   homepage "https://github.com/goagwiki/agwiki"
-  version "0.1.12"
+  version "0.1.13"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/goagwiki/agwiki/releases/download/v0.1.12/agwiki-aarch64-apple-darwin.tar.gz"
-      sha256 "d35710efc704ad9579fefdbd9e2610bb75352ebf6edc20ba0ca5794991f44043"
+      url "https://github.com/goagwiki/agwiki/releases/download/v0.1.13/agwiki-aarch64-apple-darwin.tar.gz"
+      sha256 "238a485c2392dd3f93c76a7a6408c9222d399691f8aa199b8cf575767c0a2984"
     elsif Hardware::CPU.intel?
-      url "https://github.com/goagwiki/agwiki/releases/download/v0.1.12/agwiki-x86_64-apple-darwin.tar.gz"
-      sha256 "a29f3388e15a533fe75fd6083abdbfd84684f550b73165ad651413ef06385aba"
+      url "https://github.com/goagwiki/agwiki/releases/download/v0.1.13/agwiki-x86_64-apple-darwin.tar.gz"
+      sha256 "0deb0fbbd4ae46aa0f0c5eb8e2a31e7194509979d648ac3164050bf79fcf49fc"
     else
       odie "Unsupported macOS CPU architecture"
     end
@@ -31,11 +31,11 @@ class Agwiki < Formula
       end
 
       if glibc_version >= 2.38
-        url "https://github.com/goagwiki/agwiki/releases/download/v0.1.12/agwiki-x86_64-unknown-linux-gnu.tar.gz"
-        sha256 "cf3da5f468b90e0b773ed97c7c3ee82cb46940ebd282f79333594456d60bcf14"
+        url "https://github.com/goagwiki/agwiki/releases/download/v0.1.13/agwiki-x86_64-unknown-linux-gnu.tar.gz"
+        sha256 "a29be3c91e8e873b7b63a873dc10a180382a0e73f9da189dbdb86441f5f53426"
       else
-        url "https://github.com/goagwiki/agwiki/releases/download/v0.1.12/agwiki-x86_64-unknown-linux-musl.tar.gz"
-        sha256 "e7bae6f4baa1da9580cab37f27b40bf13530e7ff3ffe595e149040d3cd0a62bb"
+        url "https://github.com/goagwiki/agwiki/releases/download/v0.1.13/agwiki-x86_64-unknown-linux-musl.tar.gz"
+        sha256 "b49d59ec9c1afbf19e2c1c214153222bbb54a59d4fced2f4ab8c6c6d143fa5b5"
       end
     else
       odie "Unsupported Linux CPU architecture"
