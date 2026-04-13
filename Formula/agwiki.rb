@@ -4,16 +4,16 @@
 class Agwiki < Formula
   desc "Agent-based wiki CLI: init, ingest, validate, skill export"
   homepage "https://github.com/goagwiki/agwiki"
-  version "0.1.9"
+  version "0.1.10"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/goagwiki/agwiki/releases/download/v0.1.9/agwiki-aarch64-apple-darwin.tar.gz"
-      sha256 "35ce0046d7241540100b646176b54d768e279be0e13bb186f096a27996fc573b"
+      url "https://github.com/goagwiki/agwiki/releases/download/v0.1.10/agwiki-aarch64-apple-darwin.tar.gz"
+      sha256 "4e8d4794344767e04dbd0544032f5183c511060c42370f644b514cf3b24104db"
     elsif Hardware::CPU.intel?
-      url "https://github.com/goagwiki/agwiki/releases/download/v0.1.9/agwiki-x86_64-apple-darwin.tar.gz"
-      sha256 "9bd792981057263ce5d12e5db4f9346daaa06ad02b2e27f814b8dcff8d8da2dc"
+      url "https://github.com/goagwiki/agwiki/releases/download/v0.1.10/agwiki-x86_64-apple-darwin.tar.gz"
+      sha256 "a04bbf9d13506338497efcf85439ad058862aead7978175e0e7e92bc2800413b"
     else
       odie "Unsupported macOS CPU architecture"
     end
@@ -31,11 +31,11 @@ class Agwiki < Formula
       end
 
       if glibc_version >= 2.38
-        url "https://github.com/goagwiki/agwiki/releases/download/v0.1.9/agwiki-x86_64-unknown-linux-gnu.tar.gz"
-        sha256 "1f2b7bb55d84ee27256d528b60c8de60a66133f7ad0631fc1517dddfb3518d33"
+        url "https://github.com/goagwiki/agwiki/releases/download/v0.1.10/agwiki-x86_64-unknown-linux-gnu.tar.gz"
+        sha256 "82b7dcb7ed89ac924a31c2131fd766ad738cfc9bc5205d99733cd8ec1797773d"
       else
-        url "https://github.com/goagwiki/agwiki/releases/download/v0.1.9/agwiki-x86_64-unknown-linux-musl.tar.gz"
-        sha256 "84a34571f4f61c7497f9dd1a59e14a311db7928eb990b181c73ff65f631103f9"
+        url "https://github.com/goagwiki/agwiki/releases/download/v0.1.10/agwiki-x86_64-unknown-linux-musl.tar.gz"
+        sha256 "e920b5dfde19025e3a711f4e30fc0b4fbd3ef5e858c318a97b8944c6e97eb360"
       end
     else
       odie "Unsupported Linux CPU architecture"
