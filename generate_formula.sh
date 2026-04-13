@@ -182,7 +182,7 @@ class ${FORMULA_CLASS} < Formula
   end
 
   test do
-    system "#{bin}/${BINARY_NAME}", "--version"
+    system bin/"${BINARY_NAME}", "--version"
   end
 end
 FORMULA_EOF

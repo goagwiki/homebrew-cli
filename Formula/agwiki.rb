@@ -47,6 +47,6 @@ class Agwiki < Formula
   end
 
   test do
-    system "#{bin}/agwiki", "--version"
+    system bin/"agwiki", "--version"
   end
 end
