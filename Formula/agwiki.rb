@@ -10,10 +10,10 @@ class Agwiki < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/goagwiki/agwiki/releases/download/v0.2.0/agwiki-aarch64-apple-darwin.tar.gz"
-      sha256 "d9880e1f2f6cffa8dbe0dcf30db1624b5d9c76be585a8beea029d030b9c75d1c"
+      sha256 "ece944174c2b71a60f5264d72efa8086549d16fc4fb64c7a11fb98f79b9e7433"
     elsif Hardware::CPU.intel?
       url "https://github.com/goagwiki/agwiki/releases/download/v0.2.0/agwiki-x86_64-apple-darwin.tar.gz"
-      sha256 "8e122b3e0bf9a20e47e90d7ac561cf51017bd2146ef997a902dfebd9fe179085"
+      sha256 "43a6bf0aa4605f78c5c5ca642150d50417bfd84d9dbf112a8d9b4b6bc882e765"
     else
       odie "Unsupported macOS CPU architecture"
     end
@@ -32,10 +32,10 @@ class Agwiki < Formula
 
       if glibc_version >= 2.38
         url "https://github.com/goagwiki/agwiki/releases/download/v0.2.0/agwiki-x86_64-unknown-linux-gnu.tar.gz"
-        sha256 "18186d66a0aadcbe5eca47b2ac94efabfd138a5619ac9d408933f7dcf00172cc"
+        sha256 "1904c0995f1e260baa622f45a7da309ba9aae6fef85f4904c8a9bea1b0c3c5d4"
       else
         url "https://github.com/goagwiki/agwiki/releases/download/v0.2.0/agwiki-x86_64-unknown-linux-musl.tar.gz"
-        sha256 "c3a11487fe49a0f963ef5526c5cb6c0368a154e168d1f8b3e414f4af41b903d7"
+        sha256 "8d258553e07e79d0f7e3918c6d9532d307f7079c0f97520c23aa6b35a0d2ef33"
       end
     else
       odie "Unsupported Linux CPU architecture"
